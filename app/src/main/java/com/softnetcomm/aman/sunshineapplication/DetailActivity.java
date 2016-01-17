@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+// Detail Class
 
 public class DetailActivity extends ActionBarActivity {
 
