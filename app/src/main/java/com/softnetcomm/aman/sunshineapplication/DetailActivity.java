@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 // Detail Class
+// New commit
 
 public class DetailActivity extends ActionBarActivity {
 
