@@ -17,7 +17,7 @@ public class WeatherDBHelper extends SQLiteOpenHelper {
     public WeatherDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
+//Weather contract
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -26,6 +26,7 @@ public class WeatherDBHelper extends SQLiteOpenHelper {
                         WeatherEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         WeatherEntry.COLUMN_LOCATION_KEY + " INTEGER NOT NULL, " +
                         WeatherEntry.COLUMN_DATETEXT + "";
+
     }
 
     @Override
