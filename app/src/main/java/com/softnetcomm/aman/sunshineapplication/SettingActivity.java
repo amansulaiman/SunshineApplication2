@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
 /**
  * Created by aman on 3/20/15.
  */
- public class SettingActivity extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
+ public class SettingActivity extends PreferenceActivity implements
+        Preference.OnPreferenceChangeListener {
 
 
     @Override
@@ -20,6 +22,7 @@ import android.preference.PreferenceManager;
         addPreferencesFromResource(R.xml.pref_general);
 
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_location_key)));
+        bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_unit_key)));
     }
 
     private void bindPreferenceSummaryToValue(Preference preference) {

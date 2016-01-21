@@ -84,7 +84,7 @@ public  class ForecastFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        final String[] forecastArray = {
+        /*final String[] forecastArray = {
                 "Monday 25-03-2015 25 Degree Celcius",
                 "Tuesday 26-03-2015 35 Degree Celcius",
                 "Wednessday 27-03-2015 41 Degree Celcius",
@@ -103,14 +103,14 @@ public  class ForecastFragment extends Fragment {
                 "Thursday 28-03-2015 30 Degree celcius",
         };
         List<String> weekforecast = new ArrayList<String>(
-                Arrays.asList(forecastArray));
+                Arrays.asList(forecastArray));*/
 
         mforecastAdapter = new
                 ArrayAdapter<String>(
                 getActivity(),
                 R.layout.list_item_forecast,
                 R.id.list_item__forecast_textview,
-                weekforecast
+                new ArrayList<String>()
         );
 
 
@@ -151,6 +151,18 @@ public  class ForecastFragment extends Fragment {
          */
         private String formatHighLows(double high, double low) {
             // For presentation, assume the user doesn't care about tenths of a degree.
+            SharedPreferences sharedPreferences =
+                    PreferenceManager.getDefaultSharedPreferences(getActivity());
+            String unitType = sharedPreferences.getString(
+                    getString(R.string.pref_unit_key),
+                    getString(R.string.pref_unit_metric)
+            );
+            if (unitType.equals(R.string.pref_unit_imperial)){
+                high = (high * 1.8) + 32;
+                low = (low * 1.8)+ 32;
+            }else if (!unitType.equals(R.string.pref_unit_metric)){
+                Log.d(LOG_TAG, "Unit type not found: " + unitType);
+            }
             long roundedHigh = Math.round(high);
             long roundedLow = Math.round(low);
 
